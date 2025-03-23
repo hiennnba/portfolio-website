@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NGUYEN SI - Web Developer & Designer Portfolio">
+    <title>NGUYEN SI | Portfolio</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <!-- Galaxy Background Container - CHỈ SỬ DỤNG MỘT CANVAS -->
+    <div id="galaxy-container">
+        <canvas id="webgl-canvas"></canvas>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <header>
+            <div class="logo">NGUYEN SI</div>
+            <nav>
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul>
+                    <li><a href="#hero" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content fade-in">
+                <h1>NGUYEN SI</h1>
+                <p class="subtitle">Web Developer & Designer</p>
+                <p>Creating digital experiences that are both functional and beautiful.</p>
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-title-container fade-in">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="assets/images/projects/Untitled design.svg" alt="NGUYEN SI">
+                </div>
+                <div class="about-text fade-in">
+                    <p>Hello! I'm Nguyen Si, a passionate web developer and designer with a focus on creating immersive digital experiences. I specialize in building modern, responsive websites with clean code and stunning visuals.</p>
+                    <p>With a background in both design and development, I bring a unique perspective to every project, ensuring that aesthetics and functionality work together seamlessly. I'm constantly exploring new technologies and techniques to stay at the forefront of web development.</p>
+                    <p>When I'm not coding, you can find me exploring creative photography, learning about astronomy, or experimenting with digital art. I believe that these diverse interests inform my approach to web development, allowing me to create truly unique digital experiences.</p>
+                    <a href="/assets/images/projects/cv.pdf" class="btn" style="margin-top: 1.5rem;">Download CV</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-title-container fade-in">
+                <h2>My Projects</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card fade-in">
+                    <img src="assets/images/projects/galaxy.png" alt="Galaxy Visualization" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Galaxy Visualization</h3>
+                        <p>An interactive 3D visualization of galaxy formations using WebGL and Three.js.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">WebGL</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Live</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card fade-in">
+                    <img src="assets/images/projects/ecommerce.png" alt="E-Commerce Platform" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p>A fully responsive e-commerce platform with product filtering and secure checkout.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Live</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card fade-in">
+                    <img src="assets/images/projects/weather.png" alt="Weather Dashboard" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">Weather Dashboard</h3>
+                        <p>Real-time weather application with dynamic data visualization and forecast predictions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">View Live</a>
+                            <a href="#">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    
+        <section id="skills">
+            <div class="section-title-container fade-in">
+                <h2>My Skills</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="skills-container">
+             
+                <div class="skill-category fade-in">
+                    <h3>Frontend</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML/CSS</span>
+                                <span>20%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Three.js</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>C Sharp</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+           
+                <div class="skill-category fade-in">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Node.js</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Express</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>MongoDB</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>SQL</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Firebase</span>
+                                <span>78%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 78%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+             
+                <div class="skill-category fade-in">
+                    <h3>Design</h3>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Figma</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Adobe Photoshop</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>UI/UX Design</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Responsive Design</span>
+                                <span>15%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 92%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Illustration</span>
+                                <span>1%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        
+        <section id="contact">
+            <div class="section-title-container fade-in">
+                <h2>Get In Touch</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3 style="margin-bottom: 1.5rem; color: #64b5f6;">Contact Information</h3>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div>
+                            <strong>TeleGram</strong>
+                            <p>@Jiraiya070</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </div>
+                        <div>
+                            <strong>Email</strong>
+                            <p>hatb1845@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9 -6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <div>
+                            <strong>Location</strong>
+                            <p>Command Center</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <h3 style="margin-bottom: 1.5rem; color: #64b5f6;">Send Me a Message</h3>
+                    <form id="contact-form" action="https://formsubmit.co/hatb1845@gmail.com" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="_subject" value="New Contact Form Submission">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://www.youtube.com/@blackhat-l6c" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+            </a>
+            <a href="https://www.facebook.com/YasuiSakuko/" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://github.com/hiennnba" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path></svg>
+            </a>
+        </div>
+        <p class="copyright">© 2025 DarkNitgt_ToFight. All rights reserved.</p>
+    </footer>
+    
+    <script type="module" src="js/galaxy.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <!-- Add these before your module script -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/examples/js/postprocessing/EffectComposer.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/examples/js/postprocessing/RenderPass.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/examples/js/postprocessing/UnrealBloomPass.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/three@0.152.0/examples/js/postprocessing/ShaderPass.js"></script> -->
+    <script async src="https://unpkg.com/es-module-shims"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.152.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.152.0/examples/jsm/"
+        }
+      }
+    </script>
+
+</body>
+</html>
