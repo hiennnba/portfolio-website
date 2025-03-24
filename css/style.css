@@ -105,7 +105,7 @@
   }
   
   nav ul li {
-    margin-left: 2.5rem;
+    margin: 0 15px;
   }
   
   nav a {
@@ -943,7 +943,10 @@
   @media screen and (max-width: 768px) {
     .hamburger {
       display: block;
-      z-index: 101;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
     }
     
     .hamburger.active .bar:nth-child(1) {
@@ -959,19 +962,35 @@
     }
     
     nav ul {
-      background-color: rgba(13, 27, 42, 0.95); /* Nền tối hơn, phù hợp với theme */
-      backdrop-filter: blur(10px);
-      transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 27, 42, 0.95);
+    backdrop-filter: blur(10px);
+    transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Quan trọng: Flexbox để canh giữa */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     }
     
     nav ul.active {
       left: 0;
+      display: block;
     }
     
     nav ul li {
-      margin: 1.5rem 0;
+      text-align: center;
     }
-    
+    nav ul li a {
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+    }
     .hero-content h1 {
       font-size: 2.5rem;
     }
