@@ -48,6 +48,8 @@
                     <li><a href="#hero" class="active">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -87,7 +89,7 @@
         <!-- About Section -->
         <section id="about">
             <div class="section-title-container fade-in">
-                <h2>About Me</h2>
+                <h2 data-text="About Me">About Me</h2>
                 <div class="underline"></div>
             </div>
             <div class="about-content">
@@ -106,7 +108,7 @@
         <!-- Projects Section -->
         <section id="projects">
             <div class="section-title-container fade-in">
-                <h2>My Projects</h2>
+                <h2 data-text="My Projects">My Projects</h2>
                 <div class="underline"></div>
             </div>
             <div class="projects-grid">
@@ -169,7 +171,7 @@
     
         <section id="skills">
             <div class="section-title-container fade-in">
-                <h2>My Skills</h2>
+                <h2 data-text="My Skills">My Skills</h2>
                 <div class="underline"></div>
             </div>
             <div class="skills-container">
@@ -334,7 +336,7 @@
         <!-- Gallery Section -->
         <section id="gallery">
             <div class="section-title-container fade-in">
-                <h2>Photo Gallery</h2>
+                <h2 data-text="Photo Gallery">Photo Gallery</h2>
                 <div class="underline"></div>
             </div>
             <div class="gallery-container fade-in">
@@ -393,7 +395,7 @@
         <!-- Testimonials Section -->
         <section id="testimonials">
             <div class="section-title-container fade-in">
-                <h2>Testimonials</h2>
+                <h2 data-text="Testimonials">Testimonials</h2>
                 <div class="underline"></div>
             </div>
             <div class="testimonials-container">
@@ -497,7 +499,7 @@
         </section>
         <section id="contact">
             <div class="section-title-container fade-in">
-                <h2>Get In Touch</h2>
+                <h2 data-text="Get In Touch">Get In Touch</h2>
                 <div class="underline"></div>
             </div>
             <div class="contact-container">
@@ -533,29 +535,34 @@
                 </div>
                 <div class="contact-form fade-in">
                     <h3 style="margin-bottom: 1.5rem; color: #64b5f6;">Send Me a Message</h3>
-                    <form id="contact-form" action="https://formsubmit.co/hatb1845@gmail.com" method="POST">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        
-                        <input type="hidden" name="_subject" value="New Contact Form Submission">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <form id="contact-form" action="https://formsubmit.co/hatb1845@gmail.com" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            
+                            
+                            <input type="hidden" name="_subject" value="New Contact Form Submission">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="true">
+                           
+                            <input type="text" name="_honey" style="display:none">
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
                 </div>
             </div>
         </section>

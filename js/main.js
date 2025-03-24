@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         const progressBars = entry.target.querySelectorAll('.skill-progress');
         progressBars.forEach(bar => {
-          const width = bar.parentElement.parentElement.querySelector('.skill-name span:last-child').textContent;
-          bar.style.width = width;
+          // Sửa lỗi: Thêm xử lý để đảm bảo lấy giá trị phần trăm đúng
+          const percentText = bar.parentElement.parentElement.querySelector('.skill-name span:last-child').textContent;
+          // Đảm bảo chuyển đổi thành phần trăm hợp lệ
+          bar.style.width = percentText;
         });
       }
     });
@@ -47,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile menu toggle
   const hamburger = document.querySelector('.hamburger');
   const navMenu = document.querySelector('nav ul');
-  if (hamburger) {
+  if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
       navMenu.classList.toggle('active');
@@ -57,8 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Close mobile menu when clicking on a nav link
   document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
+      if (hamburger && navMenu) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      }
     });
   });
   
@@ -218,21 +222,40 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in').forEach(element => {
     element.classList.add('active');
   });
+
+  // === GALLERY FUNCTIONALITY - Đã SỬA ===
+  initGallery();
+  
+  // === TESTIMONIALS FUNCTIONALITY - Đã SỬA ===
+  initTestimonials();
 });
-// Gallery functionality
-(function() {
+
+// Gallery initialization function - Fixed
+function initGallery() {
   // Get all gallery items and filter buttons
   const filterBtns = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
   
-  if (!galleryItems.length) return; // Exit if no gallery items found
+  if (!galleryItems.length) {
+    console.log("No gallery items found");
+    return; // Exit if no gallery items found
+  }
   
-  console.log("Found gallery items:", galleryItems.length); // Debug log
+  console.log("Gallery Items:", galleryItems.length);
+  console.log("Filter Buttons:", filterBtns.length);
+  
+  // Manually set initial styles for gallery items
+  galleryItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateY(50px)';
+  });
   
   // Show all items initially with staggered animation
   setTimeout(() => {
     galleryItems.forEach((item, index) => {
       setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
         item.classList.add('show');
       }, 100 * index);
     });
@@ -240,19 +263,23 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Add click event to filter buttons
   filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', function() {
+      console.log("Filter clicked:", this.getAttribute('data-filter'));
+      
       // Remove active class from all buttons
       filterBtns.forEach(btn => btn.classList.remove('active'));
       
       // Add active class to clicked button
-      btn.classList.add('active');
+      this.classList.add('active');
       
       // Get filter value
-      const filterValue = btn.getAttribute('data-filter');
+      const filterValue = this.getAttribute('data-filter');
       
       // Filter gallery items
       galleryItems.forEach(item => {
-        // Reset animation by removing and re-adding show class
+        // Hide first
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(50px)';
         item.classList.remove('show');
         
         // Check if item should be shown
@@ -260,11 +287,13 @@ document.addEventListener('DOMContentLoaded', () => {
           filterValue === 'all' || 
           item.getAttribute('data-category') === filterValue;
         
-        // Hide items that don't match the filter
+        // Show items that match the filter
         if (shouldShow) {
           setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
             item.classList.add('show');
-          }, 50);
+          }, 300);
         }
       });
     });
@@ -280,12 +309,24 @@ document.addEventListener('DOMContentLoaded', () => {
       // Create lightbox elements
       const lightbox = document.createElement('div');
       lightbox.className = 'lightbox';
+      lightbox.style.position = 'fixed';
+      lightbox.style.top = '0';
+      lightbox.style.left = '0';
+      lightbox.style.width = '100%';
+      lightbox.style.height = '100%';
+      lightbox.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+      lightbox.style.display = 'flex';
+      lightbox.style.alignItems = 'center';
+      lightbox.style.justifyContent = 'center';
+      lightbox.style.zIndex = '9999';
+      lightbox.style.opacity = '0';
+      lightbox.style.transition = 'opacity 0.3s ease';
       
       lightbox.innerHTML = `
-        <div class="lightbox-content">
-          <span class="lightbox-close">&times;</span>
-          <img src="${imgSrc}" alt="${title}">
-          <div class="lightbox-caption">
+        <div class="lightbox-content" style="max-width: 80%; max-height: 80%; position: relative;">
+          <span class="lightbox-close" style="position: absolute; top: -40px; right: 0; font-size: 30px; color: white; cursor: pointer;">&times;</span>
+          <img src="${imgSrc}" alt="${title}" style="max-width: 100%; max-height: 80vh; border-radius: 5px; box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);">
+          <div class="lightbox-caption" style="color: white; text-align: center; margin-top: 15px;">
             <h3>${title}</h3>
             <p>${description}</p>
           </div>
@@ -315,9 +356,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
-})();
-// Testimonial Auto-Scroll functionality
-(function() {
+}
+
+// Testimonials initialization function - Fixed
+function initTestimonials() {
   const testimonialCards = document.querySelectorAll('.testimonial-card');
   const indicators = document.querySelectorAll('.indicator');
   const prevBtn = document.querySelector('.prev-testimonial');
@@ -328,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return; // Exit if no testimonial cards found
   }
   
-  console.log("Found testimonial cards:", testimonialCards.length); // Debug log
+  console.log("Found testimonial cards:", testimonialCards.length);
   
   let currentIndex = 0;
   let isAnimating = false;
@@ -342,6 +384,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reset all cards and indicators
     testimonialCards.forEach(card => {
       card.classList.remove('active');
+      card.style.opacity = '0';
+      card.style.visibility = 'hidden';
+      card.style.transform = 'translateX(50px)';
+      card.classList.add('previous');
     });
     
     indicators.forEach(dot => {
@@ -349,7 +395,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Show current card and indicator
-    testimonialCards[index].classList.add('active');
+    const currentCard = testimonialCards[index];
+    currentCard.classList.add('active');
+    currentCard.style.opacity = '1';
+    currentCard.style.visibility = 'visible';
+    currentCard.style.transform = 'translateX(0)';
+    
     indicators[index].classList.add('active');
     
     // Reset animation state after transition
@@ -452,7 +503,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Create floating particles effect
   createParticlesEffect();
-})();
+}
 
 // Create floating particles effect
 function createParticlesEffect() {
@@ -492,8 +543,8 @@ function createParticlesEffect() {
   }
   
   // Add keyframes animation for particles
-  const style = document.createElement('style');
-  style.textContent = `
+  const styleEl = document.createElement('style');
+  styleEl.textContent = `
     @keyframes floatParticle {
       0% {
         transform: translate(0, 0) scale(0);
@@ -501,15 +552,15 @@ function createParticlesEffect() {
       }
       25% {
         transform: translate(-50px, -30px) scale(1);
-        opacity: var(--opacity, ${opacity});
+        opacity: ${opacity || 0.3};
       }
       50% {
         transform: translate(-100px, 30px) scale(0.8);
-        opacity: var(--opacity, ${opacity});
+        opacity: ${opacity || 0.3};
       }
       75% {
         transform: translate(-50px, 60px) scale(0.6);
-        opacity: var(--opacity, ${opacity});
+        opacity: ${opacity || 0.3};
       }
       100% {
         transform: translate(0, 0) scale(0);
@@ -517,5 +568,22 @@ function createParticlesEffect() {
       }
     }
   `;
-  document.head.appendChild(style);
+  document.head.appendChild(styleEl);
 }
+
+// Thêm smooth scrolling cho các liên kết neo
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const targetId = this.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 70,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
